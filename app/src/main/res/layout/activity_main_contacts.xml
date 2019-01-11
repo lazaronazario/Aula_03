@@ -7,7 +7,6 @@
     android:orientation="vertical"
     tools:context=".Native.MainActivityContacts">
 
-
     <Button
         android:id="@+id/contacts"
         android:layout_width="wrap_content"
@@ -42,10 +41,9 @@
         android:id="@+id/listView1"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_marginStart="0dp"
         android:layout_marginTop="55dp" />
 
 </RelativeLayout>
+
 

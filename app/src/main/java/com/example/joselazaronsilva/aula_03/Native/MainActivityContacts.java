@@ -9,6 +9,8 @@ import android.net.NetworkInfo;
 import android.provider.ContactsContract;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ListView;
@@ -20,12 +22,22 @@ import com.example.joselazaronsilva.aula_03.R;
 public class MainActivityContacts extends AppCompatActivity {
     ListView lv;
     Button conects;
+    Button tela2;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_contacts);
         lv = (ListView) findViewById(R.id.listView1);
         conects = (Button) findViewById(R.id.conects);
+        tela2 = (Button) findViewById(R.id.tela2);
+
+        tela2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent it = new Intent(getApplicationContext(), MainActivityAction.class);
+                startActivity(it);
+            }
+        });
 
         conects.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -60,4 +72,25 @@ public class MainActivityContacts extends AppCompatActivity {
         lv.setAdapter(simpleCursorAdapter);
         lv.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
     }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+
+        //noinspection SimplifiableIfStatement
+        if (id == R.id.action_settings) {
+            return true;
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
+
+
 }
